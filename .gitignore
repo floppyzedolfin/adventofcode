@@ -1,1 +1,11 @@
-**/bin
+# executable files
+*.out
+
+# .idea holds IDE stuff
+.idea/*
+
+# vendor is filled every make init
+vendor/*
+
+# go.sum is generated every make init
+go.sum
