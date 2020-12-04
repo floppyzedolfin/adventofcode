@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	Part1 = 1
-	Part2 = 2
+	Prima = 1
+	Secunda = 2
 )
 
 // Parts lists the parts we want to solve.
