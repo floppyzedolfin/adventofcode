@@ -1,10 +1,10 @@
 package dec02
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+	"strings"
 
+	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
 )
 
@@ -19,48 +19,38 @@ type dec02Solver struct {
 }
 
 // Solve implements the Solver interface
-func (s dec02Solver) Solve() (door.Result, error) {
+func (s dec02Solver) Solve(p door.Parts) (door.Result, error) {
 	passwords, err := readLines(s.inputPath)
 	if err != nil {
-		return nil, fmt.Errorf("readLines: %s", err.Error())
+		return nil, fmt.Errorf("unable to parse input file '%s': %s", s.inputPath, err.Error())
 	}
-	validPasswords := 0
-	for _, p := range passwords {
-		// change here to use the validator of the first part.
-		if p.isValid2() {
-			validPasswords++
-		}
+	var result dec02Result
+	if p.Contains(door.Part1) {
+		result.validPasswordsPart1 = common.IntPointer(countValidPasswordsPart1(passwords))
 	}
-	return dec02Result{validPasswords: validPasswords}, nil
+	if p.Contains(door.Part2) {
+		result.validPasswordsPart2 = common.IntPointer(countValidPasswordsPart2(passwords))
+	}
+	return result, nil
 }
 
 // Implementation of the result for dec02
 type dec02Result struct {
-	validPasswords int
+	validPasswordsPart1 *int
+	validPasswordsPart2 *int
 }
 
 // String implements the Result interface
 func (r dec02Result) String() string {
-	return fmt.Sprintf("The number of valid passwords is %d.", r.validPasswords)
-}
-
-// readLines reads a whole file into memory
-// and returns a slice of passwords - its lines.
-func readLines(path string) ([]password, error) {
-	file, err := os.Open(path)
-	if err != nil {
-		return nil, err
+	if r.validPasswordsPart1 == nil && r.validPasswordsPart2 == nil {
+		return "No job done by the elves today."
 	}
-	defer file.Close()
-
-	var passwords []password
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		p, err := buildPassword(scanner.Text())
-		if err != nil {
-			return nil, err
-		}
-		passwords = append(passwords, p)
+	output := strings.Builder{}
+	if r.validPasswordsPart1 != nil {
+		output.WriteString(fmt.Sprintf("The number of valid passwords for Part 1 is %d.\n", *r.validPasswordsPart1))
 	}
-	return passwords, scanner.Err()
+	if r.validPasswordsPart2 != nil {
+		output.WriteString(fmt.Sprintf("The number of valid passwords for Part 2 is %d.\n", *r.validPasswordsPart2))
+	}
+	return output.String()
 }

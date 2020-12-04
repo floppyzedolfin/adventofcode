@@ -72,3 +72,23 @@ func buildPassword(line string) (password, error) {
 		},
 	}, nil
 }
+
+func countValidPasswordsPart1(passwords []password) int {
+	count := 0
+	for _, p := range passwords {
+		if p.isValid1() {
+			count++
+		}
+	}
+	return count
+}
+
+func countValidPasswordsPart2(passwords []password) int {
+	count := 0
+	for _, p := range passwords {
+		if p.isValid2() {
+			count++
+		}
+	}
+	return count
+}

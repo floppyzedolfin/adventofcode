@@ -15,6 +15,7 @@ build:
 
 run: build
 run:
-	[ -n $(DOOR) ] || exit 1
+	if [ -z "$(DOOR)" ]; D="-door $(DOOR)"; fi
+	if [ -z "$(PARTS)" ]; P="-parts $(PARTS)"; fi
 	@echo "Running Advent of Code for December $(filter-out $@,$(MAKECMDGOALS))"
-	./adventofcode.out -door $(DOOR)
+	./adventofcode.out $(D) $(P)
