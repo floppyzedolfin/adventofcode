@@ -13,9 +13,14 @@ clean:
 build:
 	go build -o adventofcode.out cmd/main.go
 
+# If the first argument is "run"...
+ifeq (run,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "run"
+  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(RUN_ARGS):;@:)
+endif
+
 run: build
 run:
-	if [ -z "$(DOOR)" ]; D="-door $(DOOR)"; fi
-	if [ -z "$(PARTS)" ]; P="-parts $(PARTS)"; fi
-	@echo "Running Advent of Code for December $(filter-out $@,$(MAKECMDGOALS))"
-	./adventofcode.out $(D) $(P)
+	./adventofcode.out $(RUN_ARGS)

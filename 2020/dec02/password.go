@@ -1,9 +1,6 @@
 package dec02
 
 import (
-	"fmt"
-	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -39,41 +36,7 @@ func (p password) isValid2() bool {
 	return firstPos != secondPos
 }
 
-const (
-	validLineRegExp = `(\d+)-(\d+) ([[:alpha:]]): ([[:alnum:]]+)$`
-)
-
-// buildPassword builds a password
-func buildPassword(line string) (password, error) {
-	// parse the line to extract the information we need
-	r := regexp.MustCompile(validLineRegExp)
-	res := r.FindStringSubmatch(line)
-	if len(res) != 5 {
-		return password{}, fmt.Errorf("unable to extract password from line %s", line)
-	}
-
-	// convert the values to integers for later use
-	min, err := strconv.Atoi(res[1])
-	if err != nil {
-		return password{}, fmt.Errorf("unable to build password, min %s is not an integer", res[1])
-	}
-	max, err := strconv.Atoi(res[2])
-	if err != nil {
-		return password{}, fmt.Errorf("unable to build password, max %s is not an integer", res[2])
-	}
-
-	// finally build the password
-	return password{
-		value:  res[4],
-		policy: policy{
-			min:    min,
-			max:    max,
-			letter: res[3],
-		},
-	}, nil
-}
-
-func countValidPasswordsPart1(passwords []password) int {
+func countValidPasswordsPrima(passwords []password) int {
 	count := 0
 	for _, p := range passwords {
 		if p.isValid1() {
@@ -83,7 +46,7 @@ func countValidPasswordsPart1(passwords []password) int {
 	return count
 }
 
-func countValidPasswordsPart2(passwords []password) int {
+func countValidPasswordsSecunda(passwords []password) int {
 	count := 0
 	for _, p := range passwords {
 		if p.isValid2() {

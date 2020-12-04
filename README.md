@@ -10,15 +10,16 @@ This is my take on the [2020 Advent of Code](https://adventofcode.com/2020) usin
     make init
     ```
    
-1. Run, giving the number of the day as parameter:
+1. Run, giving the door to open and the parts to run as parameters:
     ```
-    make DOOR=1 run
+    make run -- -door 1 -parts 1,2
     ```
     or
     ```
     make build
-    ./adventofcode.out -day 1
+    ./adventofcode.out -door 1 -parts 1,2
     ```
+   `door` must be an integer between 1 and 24 (obviously), `parts` is a list of integers separated by commas.
    
 You can also run unit tests:
 ```

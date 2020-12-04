@@ -26,42 +26,42 @@ func (s dec01Solver) Solve(p door.Parts) (door.Result, error) {
 	}
 
 	var result dec01Result
-	if p.Contains(door.Part1) {
+	if p.Contains(door.Prima) {
 		// Choose the implementation here
 		matches, err := findMatch2(lines, door.Year)
 		if err != nil {
 			return nil, fmt.Errorf("unable to find match: %s", err.Error())
 		}
-		result.productPart1 = common.IntPointer(product(matches))
+		result.productPrima = common.IntPointer(product(matches))
 	}
-	if p.Contains(door.Part2) {
+	if p.Contains(door.Secunda) {
 		// Choose the implementation here
 		matches, err := findMatch3(lines, door.Year)
 		if err != nil {
 			return nil, fmt.Errorf("unable to find match: %s", err.Error())
 		}
-		result.productPart2 = common.IntPointer(product(matches))
+		result.productSecunda = common.IntPointer(product(matches))
 	}
 	return result, nil
 }
 
 // Implementation of the result for dec01
 type dec01Result struct {
-	productPart1 *int
-	productPart2 *int
+	productPrima *int
+	productSecunda *int
 }
 
 // String implements the Result interface
 func (r dec01Result) String() string {
-	if r.productPart1 == nil && r.productPart2 == nil {
+	if r.productPrima == nil && r.productSecunda == nil {
 		return "No job done by the elves today."
 	}
 	output := strings.Builder{}
-	if r.productPart1 != nil {
-		output.WriteString(fmt.Sprintf("The product for Part 1 is %d.\n", *r.productPart1))
+	if r.productPrima != nil {
+		output.WriteString(fmt.Sprintf("The product for Part 1 is %d.\n", *r.productPrima))
 	}
-	if r.productPart2 != nil {
-		output.WriteString(fmt.Sprintf("The product for Part 2 is %d.\n", *r.productPart2))
+	if r.productSecunda != nil {
+		output.WriteString(fmt.Sprintf("The product for Part 2 is %d.\n", *r.productSecunda))
 	}
 	return output.String()
 }
