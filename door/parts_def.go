@@ -11,8 +11,11 @@ const (
 	Secunda = 2
 )
 
+// Part is a specific part of a problem
+type Part = int
+
 // Parts lists the parts we want to solve.
-type Parts []int
+type Parts []Part
 
 // ParseParts parses a string and turns it into a Parts
 func ParseParts(v string) (Parts, error) {
@@ -29,7 +32,7 @@ func ParseParts(v string) (Parts, error) {
 }
 
 // Contains lets us know whether a value was added to a Parts
-func (p *Parts)Contains(value int) bool {
+func (p *Parts) Contains(value int) bool {
 	for _, part := range *p {
 		if part == value {
 			return true

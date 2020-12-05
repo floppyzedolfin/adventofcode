@@ -16,15 +16,15 @@ func TestDec01Result_String(t *testing.T) {
 		output string
 	}{
 		"part 1": {
-			result: dec01Result{productPart1: common.IntPointer(4)},
+			result: dec01Result{productPrima: common.IntPointer(4)},
 			output: "The product for Part 1 is 4.\n",
 		},
 		"part 2": {
-			result: dec01Result{productPart2: common.IntPointer(6)},
+			result: dec01Result{productSecunda: common.IntPointer(6)},
 			output: "The product for Part 2 is 6.\n",
 		},
 		"parts 1 & 2": {
-			result: dec01Result{productPart1: common.IntPointer(4), productPart2: common.IntPointer(6)},
+			result: dec01Result{productPrima: common.IntPointer(4), productSecunda: common.IntPointer(6)},
 			output: "The product for Part 1 is 4.\nThe product for Part 2 is 6.\n",
 		},
 		"empty result": {
@@ -47,20 +47,20 @@ func TestDec01Solver_Solve(t *testing.T) {
 		output    dec01Result
 		errMsg    string
 	}{
-		"nominal Part1": {
+		"nominal Prima": {
 			inputPath: "./input",
-			parts:     door.Parts{door.Part1},
-			output:    dec01Result{productPart1: common.IntPointer(381699)},
+			parts:     door.Parts{door.Prima},
+			output:    dec01Result{productPrima: common.IntPointer(381699)},
 		},
-		"nominal Part2": {
+		"nominal Seconda": {
 			inputPath: "./input",
-			parts:     door.Parts{door.Part2},
-			output:    dec01Result{productPart2: common.IntPointer(111605670)},
+			parts:     door.Parts{door.Secunda},
+			output:    dec01Result{productSecunda: common.IntPointer(111605670)},
 		},
-		"nominal Part1 and Part2": {
+		"nominal Prima and Seconda": {
 			inputPath: "./input",
-			parts:     door.Parts{door.Part1, door.Part2},
-			output:    dec01Result{productPart1: common.IntPointer(381699), productPart2: common.IntPointer(111605670)},
+			parts:     door.Parts{door.Prima, door.Secunda},
+			output:    dec01Result{productPrima: common.IntPointer(381699), productSecunda: common.IntPointer(111605670)},
 		},
 		"no parts - no job for the elves": {
 			inputPath: "./input",
@@ -68,27 +68,27 @@ func TestDec01Solver_Solve(t *testing.T) {
 		},
 		"no input file": {
 			inputPath: "./test_data/file_doesnt_exist",
-			parts:     door.Parts{door.Part1},
+			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to read lines",
 		},
 		"aberrant input file": {
 			inputPath: "./test_data/aberrant_data",
-			parts:     door.Parts{door.Part1},
+			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to read lines",
 		},
 		"no match found": {
 			inputPath: "./test_data/no_match",
-			parts:     door.Parts{door.Part1},
+			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to find match",
 		},
 		"1010 once": {
 			inputPath: "./test_data/1010",
-			parts:     door.Parts{door.Part1},
+			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to find match",
 		},
 		"one liner": {
 			inputPath: "./test_data/oneliner",
-			parts:     door.Parts{door.Part1},
+			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to find match",
 		},
 	}

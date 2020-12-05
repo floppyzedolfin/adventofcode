@@ -1,28 +1,35 @@
 package dec01
 
 import (
-	"bufio"
-	"os"
+	"fmt"
 	"strconv"
+
+	"github.com/floppyzedolfin/adventofcode/fileparser"
 )
 
 // readLines reads a whole file into memory
 // and returns a slice of ints - its lines.
 func readLines(path string) ([]int, error) {
-	file, err := os.Open(path)
+	var i integers
+	err := fileparser.ParseFile(path, &i)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("unable to parse file %s: %s", path, err.Error())
 	}
-	defer file.Close()
+	return i.ints, nil
+}
 
-	var lines []int
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		l, err := strconv.Atoi(scanner.Text())
-		if err != nil {
-			return nil, err
-		}
-		lines = append(lines, l)
+// integers is a local utility
+type integers struct {
+	ints []int
+}
+
+// ParseLines implements the LineParser interface
+func (i *integers) ParseLine(line string) error {
+	value, err := strconv.Atoi(line)
+	if err != nil {
+		return fmt.Errorf("unable to parse line, expected an int, read '%s'", line)
 	}
-	return lines, scanner.Err()
+	// store value
+	i.ints = append(i.ints, value)
+	return nil
 }

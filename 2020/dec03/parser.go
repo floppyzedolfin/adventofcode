@@ -1,23 +1,23 @@
 package dec03
 
 import (
-	"bufio"
-	"os"
+	"fmt"
+
+	"github.com/floppyzedolfin/adventofcode/fileparser"
 )
 
-// readLines reads a whole file into memory
-// and returns a slice of passwords - its lines.
-func readLines(path string) ([]string, error) {
-	file, err := os.Open(path)
+// readForest reads a whole file into memory
+// and returns a forest - its lines.
+func readForest(path string) (forest, error) {
+	var f forest
+	err := fileparser.ParseFile(path, &f)
 	if err != nil {
-		return nil, err
+		return forest{}, fmt.Errorf("unable to parse file '%s': %s", path, err.Error())
 	}
-	defer file.Close()
+	return f, nil
+}
 
-	var lines []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-	return lines, scanner.Err()
+func (f *forest) ParseLine(line string) error {
+	f.environment = append(f.environment, []byte(line))
+	return nil
 }

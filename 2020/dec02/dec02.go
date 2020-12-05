@@ -25,32 +25,32 @@ func (s dec02Solver) Solve(p door.Parts) (door.Result, error) {
 		return nil, fmt.Errorf("unable to parse input file '%s': %s", s.inputPath, err.Error())
 	}
 	var result dec02Result
-	if p.Contains(door.Part1) {
-		result.validPasswordsPart1 = common.IntPointer(countValidPasswordsPart1(passwords))
+	if p.Contains(door.Prima) {
+		result.validPasswordsPrima = common.IntPointer(countValidPasswordsPrima(passwords))
 	}
-	if p.Contains(door.Part2) {
-		result.validPasswordsPart2 = common.IntPointer(countValidPasswordsPart2(passwords))
+	if p.Contains(door.Secunda) {
+		result.validPasswordsSecunda = common.IntPointer(countValidPasswordsSecunda(passwords))
 	}
 	return result, nil
 }
 
 // Implementation of the result for dec02
 type dec02Result struct {
-	validPasswordsPart1 *int
-	validPasswordsPart2 *int
+	validPasswordsPrima *int
+	validPasswordsSecunda *int
 }
 
 // String implements the Result interface
 func (r dec02Result) String() string {
-	if r.validPasswordsPart1 == nil && r.validPasswordsPart2 == nil {
+	if r.validPasswordsPrima == nil && r.validPasswordsSecunda == nil {
 		return "No job done by the elves today."
 	}
 	output := strings.Builder{}
-	if r.validPasswordsPart1 != nil {
-		output.WriteString(fmt.Sprintf("The number of valid passwords for Part 1 is %d.\n", *r.validPasswordsPart1))
+	if r.validPasswordsPrima != nil {
+		output.WriteString(fmt.Sprintf("The number of valid passwords for Part 1 is %d.\n", *r.validPasswordsPrima))
 	}
-	if r.validPasswordsPart2 != nil {
-		output.WriteString(fmt.Sprintf("The number of valid passwords for Part 2 is %d.\n", *r.validPasswordsPart2))
+	if r.validPasswordsSecunda != nil {
+		output.WriteString(fmt.Sprintf("The number of valid passwords for Part 2 is %d.\n", *r.validPasswordsSecunda))
 	}
 	return output.String()
 }
