@@ -52,8 +52,8 @@ func (r dec04Result) String() string {
 		return fmt.Sprint("No job done by the elves today.")
 	}
 	output := strings.Builder{}
-	for k := range r.sortParts() {
-		output.WriteString(fmt.Sprintf("The number of valid passports for Part %d is %d.\n", k, r.validPassports[k]))
+	for _, k := range r.sortParts() {
+		output.WriteString(fmt.Sprintf("The number of valid passports for Part %d is %d.\n", k, *r.validPassports[k]))
 	}
 	return output.String()
 }
