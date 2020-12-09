@@ -10,6 +10,17 @@ cover:
 clean:
 	go clean -testcache -modcache -cache
 
+
+# If the first argument is "day"...
+ifeq (day,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "day"
+  DAY_ARG := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(DAY_ARG):;@:)
+endif
+day:
+	./scripts/create_day.sh $(DAY_ARG)
+
 build:
 	go build -o adventofcode.out cmd/main.go
 
