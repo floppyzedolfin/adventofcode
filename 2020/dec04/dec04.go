@@ -9,7 +9,7 @@ import (
 	"github.com/floppyzedolfin/adventofcode/door"
 )
 
-// New builds a solver that can solve the exercise of Dec 03.
+// New builds a solver that can solve the exercise of Dec 04.
 func New(inputPath string) door.Solver {
 	return dec04Solver{inputPath: inputPath}
 }
