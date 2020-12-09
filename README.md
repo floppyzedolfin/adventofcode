@@ -1,3 +1,5 @@
+![](https://github.com/floppyzedolfin/adventofcode/workflows/build/badge.svg)  ![](https://github.com/floppyzedolfin/adventofcode/workflows/coverage/badge.svg)
+
 # Advent of Code
 
 This is my take on the [2020 Advent of Code](https://adventofcode.com/2020) using the GO language.
@@ -9,6 +11,11 @@ This is my take on the [2020 Advent of Code](https://adventofcode.com/2020) usin
     ```
     make init
     ```
+   
+1. Create the basic sources files for a new day with:
+   ```
+   make day 12
+   ```
    
 1. Run, giving the door to open and the parts to run as parameters:
     ```
