@@ -121,6 +121,7 @@ type bagIndex map[bagName]bag
 
 The choice of holding parents rather than children is only based on the fact that the Part1 exercise asks for a count of ancestors.
 
-the option of retro-engineering is also present, where I make the assumption that whoever wrote the exercise made it sure that no invalid output would be generated, and that, maybe, the bags are already sorted and the tree already exists.
+The option of retro-engineering is also present, where I make the assumption that whoever wrote the exercise made it sure that no invalid output would be generated, and that, maybe, the bags are already sorted (that is, the first line of the file is a bag with no parent, and the last lines of the file are only leaves), and the tree already exists.
 
 Implementation-wise, I spent way too much trying to squeeze two regexps into one and hope it'd work. I also, for the moment, left aside any loops (A includes B, which includes A). I finally finished Part1 (which had me check the implementation of the built-in `delete` func). Almost surprisingly, Part2 is quite similar. I'm happy I wrote both a `parents` and a `children` structure, I don't have to erase my code :). However, I don't want to count the children of a bag several times, so I'll add a pointer to an int in each bag that will "remember" how many bags it can hold.
+

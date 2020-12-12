@@ -57,7 +57,7 @@ func (r dec07Result) String() string {
 	}
 	output := strings.Builder{}
 	for _, k := range r.sortParts() {
-		output.WriteString(fmt.Sprintf("The highest available int for Part %d is %d.\n", k, *r.data[k]))
+		output.WriteString(fmt.Sprintf("The bag count for Part %d is %d.\n", k, *r.data[k]))
 	}
 	return output.String()
 }
