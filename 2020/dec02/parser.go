@@ -36,9 +36,8 @@ func (ps *passwords) ParseLine(line string) error {
 
 // buildPassword parses a line and returns a password
 func buildPassword(line string) (password, error) {
-	const (
-		validLineRegExp = `(\d+)-(\d+) ([[:alpha:]]): ([[:alnum:]]+)$`
-	)
+	const validLineRegExp = `(\d+)-(\d+) ([[:alpha:]]): ([[:alnum:]]+)$`
+
 	// parse the line to extract the information we need
 	r := regexp.MustCompile(validLineRegExp)
 	res := r.FindStringSubmatch(line)
