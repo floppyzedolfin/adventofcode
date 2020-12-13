@@ -135,4 +135,16 @@ Part1 is done, I added a few checks after going through an infinite loop myself.
 I find this code cleaner than "yesterday's", it doesn't have pointers to maps, or the like. Nevertheless, trying to find loops and fix them in low-level languages, despire being rather fun for an hour, would not be my dream job.
 
 ## December 09
-Someone told me I look weird in a 
+Someone told me I look weird in a suit. I agree with them. Let's focus on the real activity here: hacking an airborne plane. This problem reminisces about one of the first. We're looking for numbers that [do not] sum up to a given number. I think this time I'll try a new approach, at least for Part1. Indeed, we only need to store information about the last 25 numbers. I think we can even trim that down to a total of 300 (25*25 - 25)/2. Let me give you an example of a dataset of 10 input digits (a through h):
+
+
+|   |  a  |  b  |  c  |  d  |  e  |  f  |  g  |  h  |
+|===|-----|-----|-----|-----|-----|-----|-----|-----|
+| a | a+a | a+b | a+c | a+d | a+e | a+f | a+g | a+h |
+| b | b+a | b+b | b+c | b+d | b+e | b+f | b+g | b+h |
+| c | c+a | c+b | c+c | c+d | c+e | c+f | c+g | c+h |
+| d | d+a | d+b | d+c | d+d | d+e | d+f | d+g | d+h |
+| e | e+a | e+b | e+c | e+d | e+e | e+f | e+g | e+h |
+| f | f+a | f+b | f+c | f+d | f+e | f+f | f+g | f+h |
+| g | g+a | g+b | g+c | g+d | g+e | g+f | g+g | g+h |
+| h | h+a | h+b | g+c | h+d | h+e | h+f | h+g | h+h |
