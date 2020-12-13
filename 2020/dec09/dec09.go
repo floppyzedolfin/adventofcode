@@ -18,6 +18,8 @@ type dec09Solver struct {
 	inputPath string
 }
 
+// this var can be overridden by tests
+var preambleLength = 25
 
 // Solve implements the Solver interface
 func (s dec09Solver) Solve(p door.Parts) (door.Result, error) {
@@ -29,7 +31,7 @@ func (s dec09Solver) Solve(p door.Parts) (door.Result, error) {
 		}
 		var err error
 		// call the solver for that part and store a pointer to the result
-		result.invalidNumber[part], err = solver(s.inputPath)
+		result.invalidNumber[part], err = solver(s.inputPath, preambleLength)
 		if err != nil {
 			return nil, fmt.Errorf("error while solving part %v: %s", part, err.Error())
 		}
@@ -49,7 +51,11 @@ func (r dec09Result) String() string {
 	}
 	output := strings.Builder{}
 	for _, k := range r.sortParts() {
-		output.WriteString(fmt.Sprintf("The first invalid number for Part %d is %d.\n", k, *r.invalidNumber[k]))
+		if r.invalidNumber[k] == nil {
+			output.WriteString(fmt.Sprintf("No invalid number for Part %d.\n", k))
+		} else {
+			output.WriteString(fmt.Sprintf("The first invalid number for Part %d is %d.\n", k, *r.invalidNumber[k]))
+		}
 	}
 	return output.String()
 }

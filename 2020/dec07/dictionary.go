@@ -1,7 +1,7 @@
 package dec07
 
 import (
-	"github.com/floppyzedolfin/adventofcode/common"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 )
 
 // bagDictionary lets you find a bag based on its name.
@@ -57,6 +57,6 @@ func (d *bagDictionary) countBagChildren(colour bagColour) int {
 	for child, count := range (*d)[colour].children {
 		total += count *  d.countBagChildren(child)
 	}
-	(*d)[colour].childrenCount = common.IntPointer(total)
+	(*d)[colour].childrenCount = ptr.Int(total)
 	return total
 }

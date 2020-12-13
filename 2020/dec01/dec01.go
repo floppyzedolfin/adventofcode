@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 )
 
 // New builds a solver that can solve the exercise of Dec 01.
@@ -32,7 +32,7 @@ func (s dec01Solver) Solve(p door.Parts) (door.Result, error) {
 		if err != nil {
 			return nil, fmt.Errorf("unable to find match: %s", err.Error())
 		}
-		result.productPrima = common.IntPointer(product(matches))
+		result.productPrima = ptr.Int(product(matches))
 	}
 	if p.Contains(door.Secunda) {
 		// Choose the implementation here
@@ -40,7 +40,7 @@ func (s dec01Solver) Solve(p door.Parts) (door.Result, error) {
 		if err != nil {
 			return nil, fmt.Errorf("unable to find match: %s", err.Error())
 		}
-		result.productSecunda = common.IntPointer(product(matches))
+		result.productSecunda = ptr.Int(product(matches))
 	}
 	return result, nil
 }

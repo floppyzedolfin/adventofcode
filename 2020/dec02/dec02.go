@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 )
 
 // New builds a solver that can solve the exercise of Dec 02.
@@ -26,10 +26,10 @@ func (s dec02Solver) Solve(p door.Parts) (door.Result, error) {
 	}
 	var result dec02Result
 	if p.Contains(door.Prima) {
-		result.validPasswordsPrima = common.IntPointer(countValidPasswordsPrima(passwords))
+		result.validPasswordsPrima = ptr.Int(countValidPasswordsPrima(passwords))
 	}
 	if p.Contains(door.Secunda) {
-		result.validPasswordsSecunda = common.IntPointer(countValidPasswordsSecunda(passwords))
+		result.validPasswordsSecunda = ptr.Int(countValidPasswordsSecunda(passwords))
 	}
 	return result, nil
 }

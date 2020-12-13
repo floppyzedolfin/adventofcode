@@ -3,8 +3,8 @@ package dec02
 import (
 	"testing"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 	"github.com/stretchr/testify/require"
 
 	"github.com/stretchr/testify/assert"
@@ -16,15 +16,15 @@ func TestDec02Result_String(t *testing.T) {
 		output string
 	}{
 		"part 1": {
-			result: dec02Result{validPasswordsPrima: common.IntPointer(4)},
+			result: dec02Result{validPasswordsPrima: ptr.Int(4)},
 			output: "The number of valid passwords for Part 1 is 4.\n",
 		},
 		"part 2": {
-			result: dec02Result{validPasswordsSecunda: common.IntPointer(6)},
+			result: dec02Result{validPasswordsSecunda: ptr.Int(6)},
 			output: "The number of valid passwords for Part 2 is 6.\n",
 		},
 		"parts 1 & 2": {
-			result: dec02Result{validPasswordsPrima: common.IntPointer(4), validPasswordsSecunda: common.IntPointer(6)},
+			result: dec02Result{validPasswordsPrima: ptr.Int(4), validPasswordsSecunda: ptr.Int(6)},
 			output: "The number of valid passwords for Part 1 is 4.\nThe number of valid passwords for Part 2 is 6.\n",
 		},
 		"empty result": {
@@ -50,17 +50,17 @@ func TestDec02Result_Solve(t *testing.T) {
 		"nominal Prima": {
 			inputPath: "./input",
 			parts: door.Parts{door.Prima},
-			output: dec02Result{validPasswordsPrima: common.IntPointer(556)},
+			output: dec02Result{validPasswordsPrima: ptr.Int(556)},
 		},
 		"nominal Secunda": {
 			inputPath: "./input",
 			parts: door.Parts{door.Secunda},
-			output: dec02Result{validPasswordsSecunda: common.IntPointer(605)},
+			output: dec02Result{validPasswordsSecunda: ptr.Int(605)},
 		},
 		"nominal Prima & Secunda": {
 			inputPath: "./input",
 			parts: door.Parts{door.Prima, door.Secunda},
-			output: dec02Result{validPasswordsPrima: common.IntPointer(556), validPasswordsSecunda: common.IntPointer(605)},
+			output: dec02Result{validPasswordsPrima: ptr.Int(556), validPasswordsSecunda: ptr.Int(605)},
 		},
 		"no parts": {
 			inputPath: "./input",
@@ -75,7 +75,7 @@ func TestDec02Result_Solve(t *testing.T) {
 		"dangerous range": {
 			inputPath: "./test_data/dangerous_range",
 			parts: door.Parts{door.Prima, door.Secunda},
-			output: dec02Result{validPasswordsPrima: common.IntPointer(0), validPasswordsSecunda: common.IntPointer(0)},
+			output: dec02Result{validPasswordsPrima: ptr.Int(0), validPasswordsSecunda: ptr.Int(0)},
 		},
 		"invalid range": {
 			inputPath: "./test_data/invalid_range",

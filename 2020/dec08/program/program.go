@@ -14,11 +14,10 @@ type Program struct {
 	currentPosition int
 }
 
-// runNoLoop goes through instructions and exits when it detects a loop
-func (p *Program) runNoLoop() {
-	count := 0
+// runStopOnLoop goes through instructions and exits when it detects a loop, leaving p.accumulator at the computed value
+func (p *Program) runStopOnLoop() {
 	// this counter is a safety-net. If we have no loop, we'll go through each line. If we have a loop, let's make sure we didn't miss something.
-	for ; count < len(p.instructions); count++ {
+	for count := 0; count < len(p.instructions); count++ {
 		// let's discard the error, as we don't need it
 		if ok, _ := p.executeInstruction(); !ok {
 			return
@@ -30,11 +29,11 @@ func (p *Program) runNoLoop() {
 // executeInstruction returns false if the head of execution has already been executed, and, otherwise, executes the instruction there.
 func (p *Program) executeInstruction() (bool, error) {
 	if p.currentPosition == len(p.instructions) {
-		// we don't want to execute the "next" line.
+		// we don't want to execute the "next" line as we've successfully reached the end of the program! Yee-hee!
 		return false, nil
 	}
 	if p.currentPosition < 0 || p.currentPosition > len(p.instructions) {
-		// we definitely do not want to execute that line, as we've successfully reached the end of the program! Yee-hee!
+		// we definitely do not want to execute that line, as it'd be out of the bounds of the program.
 		return false, fmt.Errorf("invalid position %d", p.currentPosition)
 	}
 	i := &p.instructions[p.currentPosition]
@@ -57,8 +56,8 @@ func (p *Program) executeInstruction() (bool, error) {
 
 // reset lets someone else re-run the program as if brand-new.
 func (p *Program) reset() {
-	for i := range p.instructions {
-		p.instructions[i].AlreadySeen = false
+	for index := range p.instructions {
+		p.instructions[index].AlreadySeen = false
 	}
 	p.accumulator = 0
 	p.currentPosition = 0
@@ -66,7 +65,7 @@ func (p *Program) reset() {
 
 // RunTillLoop returns the value of the accumulator right before we would execute an instruction for the second time
 func RunTillLoop(p Program) int {
-	p.runNoLoop()
+	p.runStopOnLoop()
 	return p.accumulator
 }
 
@@ -80,11 +79,11 @@ func FixOnce(p Program) int {
 			continue
 		case instruction.Jump:
 			p.instructions[i].Op = instruction.NoOperation
-			p.runNoLoop()
+			p.runStopOnLoop()
 			p.instructions[i].Op = instruction.Jump
 		case instruction.NoOperation:
 			p.instructions[i].Op = instruction.Jump
-			p.runNoLoop()
+			p.runStopOnLoop()
 			p.instructions[i].Op = instruction.NoOperation
 		}
 		if p.currentPosition == len(p.instructions) {
@@ -112,7 +111,7 @@ func (p *Program) ParseLine(line string) error {
 	if len(fields) != 2 {
 		return fmt.Errorf("invalid  line '%s'", line)
 	}
-	inst, err := instruction.New(fields[0], strings.TrimLeft(fields[1],"+"))
+	inst, err := instruction.New(fields[0], strings.TrimLeft(fields[1], "+"))
 	if err != nil {
 		return fmt.Errorf("unable to create instruction: %s", err.Error())
 	}

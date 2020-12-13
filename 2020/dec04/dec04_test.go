@@ -3,8 +3,8 @@ package dec04
 import (
 	"testing"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -15,15 +15,15 @@ func TestDec04Result_String(t *testing.T) {
 		output string
 	}{
 		"part 1": {
-			result: dec04Result{validPassports: map[door.Part]*int{door.Prima: common.IntPointer(4)}},
+			result: dec04Result{validPassports: map[door.Part]*int{door.Prima: ptr.Int(4)}},
 			output: "The number of valid passports for Part 1 is 4.\n",
 		},
 		"part 2": {
-			result: dec04Result{validPassports: map[door.Part]*int{door.Secunda: common.IntPointer(6)}},
+			result: dec04Result{validPassports: map[door.Part]*int{door.Secunda: ptr.Int(6)}},
 			output: "The number of valid passports for Part 2 is 6.\n",
 		},
 		"parts 1 & 2": {
-			result: dec04Result{validPassports: map[door.Part]*int{door.Prima: common.IntPointer(4), door.Secunda: common.IntPointer(6)}},
+			result: dec04Result{validPassports: map[door.Part]*int{door.Prima: ptr.Int(4), door.Secunda: ptr.Int(6)}},
 			output: "The number of valid passports for Part 1 is 4.\nThe number of valid passports for Part 2 is 6.\n",
 		},
 		"empty result": {
@@ -49,17 +49,17 @@ func TestDec04Result_Solve(t *testing.T) {
 		"nominal Part 1": {
 			inputPath: "./input",
 			parts: door.Parts{door.Prima},
-			output: dec04Result{ map[door.Part]*int{door.Prima: common.IntPointer(182)}},
+			output: dec04Result{ map[door.Part]*int{door.Prima: ptr.Int(182)}},
 		},
 		"nominal Part 2": {
 			inputPath: "./input",
 			parts: door.Parts{door.Secunda},
-			output: dec04Result{ map[door.Part]*int{door.Secunda: common.IntPointer(109)}},
+			output: dec04Result{ map[door.Part]*int{door.Secunda: ptr.Int(109)}},
 		},
 		"nominal Parts 1 & 2": {
 			inputPath: "./input",
 			parts: door.Parts{door.Prima, door.Secunda},
-			output: dec04Result{ map[door.Part]*int{door.Prima: common.IntPointer(182), door.Secunda: common.IntPointer(109)}},
+			output: dec04Result{ map[door.Part]*int{door.Prima: ptr.Int(182), door.Secunda: ptr.Int(109)}},
 		},
 		"nominal no parts": {
 			inputPath: "./input",
@@ -69,22 +69,22 @@ func TestDec04Result_Solve(t *testing.T) {
 		"example 1" : {
 			inputPath: "./test_data/example1",
 			parts: door.Parts{door.Prima},
-			output: dec04Result{map[door.Part]*int{door.Prima:common.IntPointer(2)}},
+			output: dec04Result{map[door.Part]*int{door.Prima: ptr.Int(2)}},
 		},
 		"example 1 with an empty line at the end" : {
 			inputPath: "./test_data/example1_finalempty",
 			parts: door.Parts{door.Prima},
-			output: dec04Result{map[door.Part]*int{door.Prima:common.IntPointer(2)}},
+			output: dec04Result{map[door.Part]*int{door.Prima: ptr.Int(2)}},
 		},
 		"example 2" : {
 			inputPath: "./test_data/example2",
 			parts: door.Parts{door.Secunda},
-			output: dec04Result{map[door.Part]*int{door.Secunda:common.IntPointer(0)}},
+			output: dec04Result{map[door.Part]*int{door.Secunda: ptr.Int(0)}},
 		},
 		"example 3" : {
 			inputPath: "./test_data/example3",
 			parts: door.Parts{door.Secunda},
-			output: dec04Result{map[door.Part]*int{door.Secunda:common.IntPointer(4)}},
+			output: dec04Result{map[door.Part]*int{door.Secunda: ptr.Int(4)}},
 		},
 
 	}

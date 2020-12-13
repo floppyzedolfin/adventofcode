@@ -5,8 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 )
 
 // New builds a solver that can solve the exercise of Dec 04.
@@ -36,7 +36,7 @@ func (s dec04Solver) Solve(p door.Parts) (door.Result, error) {
 	result.validPassports = make(map[door.Part]*int, len(p))
 	for _, part := range p {
 		// call the solver for that part and store a pointer to the result
-		result.validPassports[part] = common.IntPointer(solvers[part](ps))
+		result.validPassports[part] = ptr.Int(solvers[part](ps))
 	}
 	return result, nil
 }

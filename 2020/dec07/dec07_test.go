@@ -3,8 +3,8 @@ package dec07
 import (
 	"testing"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -19,17 +19,17 @@ func TestDec07Result_Solve(t *testing.T) {
 		"nominal Parts": {
 			inputPath: "input",
 			parts:     door.Parts{door.Prima, door.Secunda},
-			output:    dec07Result{data: map[door.Part]*int{door.Prima: common.IntPointer(224), door.Secunda: common.IntPointer(1488)}},
+			output:    dec07Result{data: map[door.Part]*int{door.Prima: ptr.Int(224), door.Secunda: ptr.Int(1488)}},
 		},
 		"example 1" : {
 			inputPath: "./test_data/example1",
 			parts:     door.Parts{door.Prima, door.Secunda},
-			output:    dec07Result{data: map[door.Part]*int{door.Prima: common.IntPointer(4), door.Secunda: common.IntPointer(32)}},
+			output:    dec07Result{data: map[door.Part]*int{door.Prima: ptr.Int(4), door.Secunda: ptr.Int(32)}},
 		},
 		"example 2" : {
 			inputPath: "./test_data/example2",
 			parts: door.Parts{door.Secunda},
-			output: dec07Result{data: map[door.Part]*int{door.Secunda: common.IntPointer(126)}},
+			output: dec07Result{data: map[door.Part]*int{door.Secunda: ptr.Int(126)}},
 		},
 	}
 
