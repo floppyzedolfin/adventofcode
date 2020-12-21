@@ -125,3 +125,14 @@ The option of retro-engineering is also present, where I make the assumption tha
 
 Implementation-wise, I spent way too much trying to squeeze two regexps into one and hope it'd work. I also, for the moment, left aside any loops (A includes B, which includes A). I finally finished Part1 (which had me check the implementation of the built-in `delete` func). Almost surprisingly, Part2 is quite similar. I'm happy I wrote both a `parents` and a `children` structure, I don't have to erase my code :). However, I don't want to count the children of a bag several times, so I'll add a pointer to an int in each bag that will "remember" how many bags it can hold.
 
+## December 08
+Life has its ways and I'm having trouble keeping up with the speed of time. The map (we can safely assume it's a travelling path, now) is no longer linear (a line per day).We're off for an adventure over the woods.
+
+What seemed like a pleasant flight has become debugging some assembler code. Yummie. Part1, however, doesn't look that nasty. We'll store instructions, and already executed instructions (_via_ a flag, for instance), and that should be enough.
+
+Part1 is done, I added a few checks after going through an infinite loop myself. Part2 seems a bit trickier. Brute-forcing the line to change would be an O(n²) (as we have to execute the program each time). There might be a cleaner solution, but I'm going all-in with the `run` inside the loop.
+
+I find this code cleaner than "yesterday's", it doesn't have pointers to maps, or the like. Nevertheless, trying to find loops and fix them in low-level languages, despire being rather fun for an hour, would not be my dream job.
+
+## December 09
+Someone told me I look weird in a 
