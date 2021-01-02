@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 )
 
 // New builds a solver that can solve the exercise of Dec 03.
@@ -26,10 +26,10 @@ func (s dec03Solver) Solve(p door.Parts) (door.Result, error) {
 	}
 	var result dec03Result
 	if p.Contains(door.Prima) {
-		result.treeCountPrima = common.IntPointer(f.countTreesPrima())
+		result.treeCountPrima = ptr.Int(f.countTreesPrima())
 	}
 	if p.Contains(door.Secunda) {
-		result.treeCountSecunda = common.IntPointer(f.countTreesSecunda())
+		result.treeCountSecunda = ptr.Int(f.countTreesSecunda())
 	}
 	return result, nil
 }

@@ -3,8 +3,9 @@ package dec05
 import (
 	"testing"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -15,15 +16,15 @@ func TestDec05Result_String(t *testing.T) {
 		output string
 	}{
 		"part 1": {
-			result: dec05Result{availableSeats: map[door.Part]*int{door.Prima: common.IntPointer(4)}},
+			result: dec05Result{availableSeats: map[door.Part]*int{door.Prima: ptr.Int(4)}},
 			output: "The highest available int for Part 1 is 4.\n",
 		},
 		"part 2": {
-			result: dec05Result{availableSeats: map[door.Part]*int{door.Secunda: common.IntPointer(6)}},
+			result: dec05Result{availableSeats: map[door.Part]*int{door.Secunda: ptr.Int(6)}},
 			output: "The highest available int for Part 2 is 6.\n",
 		},
 		"parts 1 & 2": {
-			result: dec05Result{availableSeats: map[door.Part]*int{door.Prima: common.IntPointer(4), door.Secunda: common.IntPointer(6)}},
+			result: dec05Result{availableSeats: map[door.Part]*int{door.Prima: ptr.Int(4), door.Secunda: ptr.Int(6)}},
 			output: "The highest available int for Part 1 is 4.\nThe highest available int for Part 2 is 6.\n",
 		},
 		"empty result": {
@@ -49,17 +50,17 @@ func TestDec05Result_Solve(t *testing.T) {
 		"nominal Parts 1&2": {
 			inputPath: "input",
 			parts:     door.Parts{door.Secunda, door.Prima},
-			output:    dec05Result{map[door.Part]*int{door.Prima: common.IntPointer(828), door.Secunda: common.IntPointer(565)}},
+			output:    dec05Result{map[door.Part]*int{door.Prima: ptr.Int(828), door.Secunda: ptr.Int(565)}},
 		},
 		"example 1": {
 			inputPath: "./test_data/example1",
 			parts:     door.Parts{door.Prima},
-			output:    dec05Result{map[door.Part]*int{door.Prima: common.IntPointer(357)}},
+			output:    dec05Result{map[door.Part]*int{door.Prima: ptr.Int(357)}},
 		},
 		"example 1 with an empty line at the end": {
 			inputPath: "./test_data/example1_finalempty",
 			parts:     door.Parts{door.Prima},
-			output:    dec05Result{map[door.Part]*int{door.Prima: common.IntPointer(357)}},
+			output:    dec05Result{map[door.Part]*int{door.Prima: ptr.Int(357)}},
 		},
 	}
 

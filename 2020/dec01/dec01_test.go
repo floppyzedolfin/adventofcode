@@ -3,8 +3,8 @@ package dec01
 import (
 	"testing"
 
-	"github.com/floppyzedolfin/adventofcode/common"
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -16,15 +16,15 @@ func TestDec01Result_String(t *testing.T) {
 		output string
 	}{
 		"part 1": {
-			result: dec01Result{productPrima: common.IntPointer(4)},
+			result: dec01Result{productPrima: ptr.Int(4)},
 			output: "The product for Part 1 is 4.\n",
 		},
 		"part 2": {
-			result: dec01Result{productSecunda: common.IntPointer(6)},
+			result: dec01Result{productSecunda: ptr.Int(6)},
 			output: "The product for Part 2 is 6.\n",
 		},
 		"parts 1 & 2": {
-			result: dec01Result{productPrima: common.IntPointer(4), productSecunda: common.IntPointer(6)},
+			result: dec01Result{productPrima: ptr.Int(4), productSecunda: ptr.Int(6)},
 			output: "The product for Part 1 is 4.\nThe product for Part 2 is 6.\n",
 		},
 		"empty result": {
@@ -50,17 +50,17 @@ func TestDec01Solver_Solve(t *testing.T) {
 		"nominal Prima": {
 			inputPath: "./input",
 			parts:     door.Parts{door.Prima},
-			output:    dec01Result{productPrima: common.IntPointer(381699)},
+			output:    dec01Result{productPrima: ptr.Int(381699)},
 		},
 		"nominal Seconda": {
 			inputPath: "./input",
 			parts:     door.Parts{door.Secunda},
-			output:    dec01Result{productSecunda: common.IntPointer(111605670)},
+			output:    dec01Result{productSecunda: ptr.Int(111605670)},
 		},
 		"nominal Prima and Seconda": {
 			inputPath: "./input",
 			parts:     door.Parts{door.Prima, door.Secunda},
-			output:    dec01Result{productPrima: common.IntPointer(381699), productSecunda: common.IntPointer(111605670)},
+			output:    dec01Result{productPrima: ptr.Int(381699), productSecunda: ptr.Int(111605670)},
 		},
 		"no parts - no job for the elves": {
 			inputPath: "./input",

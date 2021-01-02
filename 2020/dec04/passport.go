@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/floppyzedolfin/adventofcode/common"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 )
 
 func validatePassports(ps []passport) int {
@@ -149,7 +149,7 @@ func (p *passport) byr(year string) error {
 	if err != nil {
 		return fmt.Errorf("unable to convert '%s' to birth year", year)
 	}
-	p.birthYear = common.IntPointer(byr)
+	p.birthYear = ptr.Int(byr)
 	return nil
 }
 
@@ -158,7 +158,7 @@ func (p *passport) iyr(year string) error {
 	if err != nil {
 		return fmt.Errorf("unable to convert '%s' to issue year", year)
 	}
-	p.issueYear = common.IntPointer(iyr)
+	p.issueYear = ptr.Int(iyr)
 	return nil
 }
 
@@ -167,7 +167,7 @@ func (p *passport) eyr(year string) error {
 	if err != nil {
 		return fmt.Errorf("unable to convert '%s' to expiration year", year)
 	}
-	p.expirationYear = common.IntPointer(eyr)
+	p.expirationYear = ptr.Int(eyr)
 	return nil
 }
 
@@ -190,7 +190,6 @@ func (p *passport) pid(passportID string) error {
 	p.passportID = &passportID
 	return nil
 }
-
 
 func (p passport) birthYearIsValid() bool {
 	if p.birthYear == nil {
@@ -270,7 +269,6 @@ func (p passport) hairColourIsValid() bool {
 	re := regexp.MustCompile(reHairColour)
 	return re.MatchString(*p.hairColour)
 }
-
 
 func (p passport) eyeColourIsValid() bool {
 	validEyeColours := map[string]struct{}{

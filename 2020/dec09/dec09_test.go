@@ -1,4 +1,4 @@
-package dec07
+package dec09
 
 import (
 	"testing"
@@ -9,32 +9,31 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestDec07Result_Solve(t *testing.T) {
+func TestDec09Result_Solve(t *testing.T) {
 	tt := map[string]struct {
 		inputPath string
+		preambleLength int
 		parts     door.Parts
-		output    dec07Result
+		output    dec09Result
 		errMsg    string
 	}{
 		"nominal Parts": {
 			inputPath: "input",
-			parts:     door.Parts{door.Prima, door.Secunda},
-			output:    dec07Result{data: map[door.Part]*int{door.Prima: ptr.Int(224), door.Secunda: ptr.Int(1488)}},
+			preambleLength: 25,
+			parts:     door.Parts{door.Prima},
+			output:    dec09Result{invalidNumber: map[door.Part]*int{door.Prima: ptr.Int(18272118)}},
 		},
-		"example 1" : {
+		"example 1": {
 			inputPath: "./test_data/example1",
+			preambleLength: 5,
 			parts:     door.Parts{door.Prima, door.Secunda},
-			output:    dec07Result{data: map[door.Part]*int{door.Prima: ptr.Int(4), door.Secunda: ptr.Int(32)}},
-		},
-		"example 2" : {
-			inputPath: "./test_data/example2",
-			parts: door.Parts{door.Secunda},
-			output: dec07Result{data: map[door.Part]*int{door.Secunda: ptr.Int(126)}},
+			output:    dec09Result{invalidNumber: map[door.Part]*int{door.Prima: ptr.Int(127), door.Secunda: ptr.Int(62)}},
 		},
 	}
 
 	for name, tc := range tt {
 		t.Run(name, func(t *testing.T) {
+			preambleLength = tc.preambleLength
 			s := New(tc.inputPath)
 			res, err := s.Solve(tc.parts)
 			if tc.errMsg != "" {
