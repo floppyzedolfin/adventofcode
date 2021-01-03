@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/ptr"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -15,10 +16,20 @@ func TestDec10Result_Solve(t *testing.T) {
 		output    dec10Result
 		errMsg    string
 	}{
-		"nominal Parts": {
+		"example1": {
+			inputPath: "./test_data/example1",
+			parts:     door.Parts{door.Prima},
+			output:    dec10Result{map[door.Part]*int64{door.Prima: ptr.Int64(35)}},
+		},
+		"example2": {
+			inputPath: "./test_data/example2",
+			parts:     door.Parts{door.Prima, door.Secunda},
+			output:    dec10Result{map[door.Part]*int64{door.Prima: ptr.Int64(220), door.Secunda: ptr.Int64(19208)}},
+		},
+		"nominal dataset": {
 			inputPath: "input",
-			parts:     door.Parts{},
-			output:    dec10Result{},
+			parts:     door.Parts{door.Prima, door.Secunda},
+			output:    dec10Result{map[door.Part]*int64{door.Prima: ptr.Int64(2070), door.Secunda: ptr.Int64(24179327893504)}},
 		},
 	}
 
