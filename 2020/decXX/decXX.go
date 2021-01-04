@@ -13,7 +13,7 @@ func New(inputPath string) door.Solver {
 	return decXXSolver{inputPath: inputPath}
 }
 
-// Implementation of the solver for decXX
+// decXXSolver implements the solver for decXX
 type decXXSolver struct {
 	inputPath string
 }
