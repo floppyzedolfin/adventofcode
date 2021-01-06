@@ -36,7 +36,7 @@ func (s decXXSolver) Solve(p door.Parts) (door.Result, error) {
 	return result, nil
 }
 
-// Implementation of the result for decXX
+// decXXResult implements the results for decXX
 type decXXResult struct {
 	data map[door.Part]*int
 }
