@@ -9,3 +9,8 @@ func Int(v int) *int {
 func Int64(v int64) *int64 {
 	return &v
 }
+
+// Uint64 returns a pointer to an uint64
+func Uint64(v uint64) *uint64 {
+	return &v
+}
