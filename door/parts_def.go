@@ -2,6 +2,7 @@ package door
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -39,4 +40,14 @@ func (p *Parts) Contains(value int) bool {
 		}
 	}
 	return false
+}
+
+// SortedParts sorts the keys of map of Parts
+func SortedParts(m map[Part]interface{}) []Part {
+	keys := make([]Part, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+	return keys
 }
