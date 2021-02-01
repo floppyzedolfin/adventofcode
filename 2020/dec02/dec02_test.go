@@ -68,19 +68,19 @@ func TestDec02Result_Solve(t *testing.T) {
 			output: dec02Result{},
 		},
 		"invalid contents": {
-			inputPath: "./test_data/invalid_contents",
+			inputPath: "./testdata/invalid_contents",
 			parts: door.Parts{door.Prima},
-			errMsg: "unable to parse input file './test_data/invalid_contents'",
+			errMsg: "unable to parse input file './testdata/invalid_contents'",
 		},
 		"dangerous range": {
-			inputPath: "./test_data/dangerous_range",
+			inputPath: "./testdata/dangerous_range",
 			parts: door.Parts{door.Prima, door.Secunda},
 			output: dec02Result{validPasswordsPrima: ptr.Int(0), validPasswordsSecunda: ptr.Int(0)},
 		},
 		"invalid range": {
-			inputPath: "./test_data/invalid_range",
+			inputPath: "./testdata/invalid_range",
 			parts: door.Parts{door.Prima, door.Secunda},
-			errMsg: "unable to parse input file './test_data/invalid_range'",
+			errMsg: "unable to parse input file './testdata/invalid_range'",
 		},
 	}
 	for name, tc := range tt {

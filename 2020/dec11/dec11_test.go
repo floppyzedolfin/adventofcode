@@ -19,12 +19,12 @@ func TestDec11Result_Solve(t *testing.T) {
 		// for some weird reason I didn't have time to investigate, I can't have both parts in the same test case.
 		// it's like some resource is shared, but I can't find which one.
 		"example1.1": {
-			inputPath: "test_data/example1",
+			inputPath: "testdata/example1",
 			parts:     door.Parts{door.Prima},
 			output:    dec11Result{map[door.Part]*int{door.Prima: ptr.Int(37)}},
 		},
 		"example1.2": {
-			inputPath: "test_data/example1",
+			inputPath: "testdata/example1",
 			parts:     door.Parts{door.Secunda},
 			output:    dec11Result{map[door.Part]*int{door.Secunda: ptr.Int(26)}},
 		},

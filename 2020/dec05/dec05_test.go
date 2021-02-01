@@ -53,12 +53,12 @@ func TestDec05Result_Solve(t *testing.T) {
 			output:    dec05Result{map[door.Part]*int{door.Prima: ptr.Int(828), door.Secunda: ptr.Int(565)}},
 		},
 		"example 1": {
-			inputPath: "./test_data/example1",
+			inputPath: "./testdata/example1",
 			parts:     door.Parts{door.Prima},
 			output:    dec05Result{map[door.Part]*int{door.Prima: ptr.Int(357)}},
 		},
 		"example 1 with an empty line at the end": {
-			inputPath: "./test_data/example1_finalempty",
+			inputPath: "./testdata/example1_finalempty",
 			parts:     door.Parts{door.Prima},
 			output:    dec05Result{map[door.Part]*int{door.Prima: ptr.Int(357)}},
 		},

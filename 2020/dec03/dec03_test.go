@@ -69,24 +69,24 @@ func TestDec03Result_Solve(t *testing.T) {
 		},
 		"invalid contents": {
 			// if the input is garbage, we simply don't find trees
-			inputPath: "./test_data/invalid_contents",
+			inputPath: "./testdata/invalid_contents",
 			parts:     door.Parts{door.Prima},
 			output:    dec03Result{treeCountPrima: ptr.Int(0)},
 		},
 		"no track x": {
-			inputPath: "./test_data/no_track_x",
+			inputPath: "./testdata/no_track_x",
 			parts:     door.Parts{door.Prima},
 			output:    dec03Result{treeCountPrima: ptr.Int(0)},
 		},
 		"no track y": {
-			inputPath: "./test_data/no_track_y",
+			inputPath: "./testdata/no_track_y",
 			parts:     door.Parts{door.Secunda},
 			output:    dec03Result{treeCountSecunda: ptr.Int(0)},
 		},
 		"missing input": {
-			inputPath: "./test_data/missing_file",
+			inputPath: "./testdata/missing_file",
 			parts:     door.Parts{door.Prima},
-			errMsg:    "unable to parse input file './test_data/missing_file'",
+			errMsg:    "unable to parse input file './testdata/missing_file'",
 		},
 	}
 	for name, tc := range tt {

@@ -16,16 +16,16 @@ func TestParseFile(t *testing.T) {
 		errMsg    string
 	}{
 		"norminal": {
-			inputPath: "./test_data/integers",
+			inputPath: "./testdata/integers",
 			output:    integers{[]int{1, 2, 4}},
 		},
 		"failing": {
-			inputPath: "./test_data/bad_integers",
+			inputPath: "./testdata/bad_integers",
 			errMsg:    "unable to parse line, expected an int, read 'foo'",
 		},
 		"no such file": {
-			inputPath: "./test_data/inexisting_file",
-			errMsg:    "unable to read file './test_data/inexisting_file'",
+			inputPath: "./testdata/inexisting_file",
+			errMsg:    "unable to read file './testdata/inexisting_file'",
 		},
 	}
 	for name, tc := range tt {

@@ -15,37 +15,37 @@ func TestSolve(t *testing.T) {
 		errMsg    string
 	}{
 		"0-3-6, 4": {
-			inputFile: "../test_data/0-3-6",
+			inputFile: "../testdata/0-3-6",
 			duration:  4,
 			result:    0,
 		},
 		"0-3-6, 5": {
-			inputFile: "../test_data/0-3-6",
+			inputFile: "../testdata/0-3-6",
 			duration:  5,
 			result:    3,
 		},
 		"0-3-6, 6": {
-			inputFile: "../test_data/0-3-6",
+			inputFile: "../testdata/0-3-6",
 			duration:  6,
 			result:    3,
 		},
 		"0-3-6, 7": {
-			inputFile: "../test_data/0-3-6",
+			inputFile: "../testdata/0-3-6",
 			duration:  7,
 			result:    1,
 		},
 		"0-3-6, 8": {
-			inputFile: "../test_data/0-3-6",
+			inputFile: "../testdata/0-3-6",
 			duration:  8,
 			result:    0,
 		},
 		"0-3-6, 9": {
-			inputFile: "../test_data/0-3-6",
+			inputFile: "../testdata/0-3-6",
 			duration:  9,
 			result:    4,
 		},
 		"0-3-6, 10": {
-			inputFile: "../test_data/0-3-6",
+			inputFile: "../testdata/0-3-6",
 			duration:  10,
 			result:    0,
 		},

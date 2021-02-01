@@ -67,27 +67,27 @@ func TestDec01Solver_Solve(t *testing.T) {
 			output:    dec01Result{},
 		},
 		"no input file": {
-			inputPath: "./test_data/file_doesnt_exist",
+			inputPath: "./testdata/file_doesnt_exist",
 			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to read lines",
 		},
 		"aberrant input file": {
-			inputPath: "./test_data/aberrant_data",
+			inputPath: "./testdata/aberrant_data",
 			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to read lines",
 		},
 		"no match found": {
-			inputPath: "./test_data/no_match",
+			inputPath: "./testdata/no_match",
 			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to find match",
 		},
 		"1010 once": {
-			inputPath: "./test_data/1010",
+			inputPath: "./testdata/1010",
 			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to find match",
 		},
 		"one liner": {
-			inputPath: "./test_data/oneliner",
+			inputPath: "./testdata/oneliner",
 			parts:     door.Parts{door.Prima},
 			errMsg:    "unable to find match",
 		},
