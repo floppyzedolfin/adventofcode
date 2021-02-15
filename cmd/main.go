@@ -21,6 +21,7 @@ import (
 	"github.com/floppyzedolfin/adventofcode/2020/dec13"
 	"github.com/floppyzedolfin/adventofcode/2020/dec14"
 	"github.com/floppyzedolfin/adventofcode/2020/dec15"
+	"github.com/floppyzedolfin/adventofcode/2020/dec16"
 	"github.com/floppyzedolfin/adventofcode/door"
 )
 
@@ -84,6 +85,8 @@ func main() {
 		s = dec14.New("2020/dec14/input")
 	case 15:
 		s = dec15.New("2020/dec15/input")
+	case 16:
+		s = dec16.New("2020/dec16/input")
 	default:
 		log.Fatalf("can't open door %d yet", d)
 	}

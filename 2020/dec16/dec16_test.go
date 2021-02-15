@@ -1,4 +1,4 @@
-package dec06
+package dec16
 
 import (
 	"testing"
@@ -9,27 +9,27 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestDec06Result_Solve(t *testing.T) {
+func TestDec16Result_Solve(t *testing.T) {
 	tt := map[string]struct {
 		inputPath string
 		parts     door.Parts
-		output    dec06Result
+		output    dec16Result
 		errMsg    string
 	}{
-		"nominal Parts 1&2": {
-			inputPath: "input",
-			parts:     door.Parts{door.Secunda, door.Prima},
-			output:    dec06Result{map[door.Part]*int{door.Prima: ptr.Int(6630), door.Secunda: ptr.Int(3437)}},
-		},
-		"example 1": {
-			inputPath: "./testdata/example1",
+		"example Part1": {
+			inputPath: "testdata/example1",
 			parts:     door.Parts{door.Prima},
-			output:    dec06Result{map[door.Part]*int{door.Prima: ptr.Int(11)}},
+			output:    dec16Result{map[door.Part]*uint64{door.Prima: ptr.Uint64(71)}},
 		},
-		"example 2": {
-			inputPath: "./testdata/example2",
+		"example Part2": {
+			inputPath: "testdata/example2",
 			parts:     door.Parts{door.Secunda},
-			output:    dec06Result{map[door.Part]*int{door.Secunda: ptr.Int(6)}},
+			output:    dec16Result{map[door.Part]*uint64{door.Secunda: ptr.Uint64(132)}},
+		},
+		"input": {
+			inputPath: "input",
+			parts:     door.Parts{door.Prima, door.Secunda},
+			output:    dec16Result{map[door.Part]*uint64{door.Prima: ptr.Uint64(20048), door.Secunda: ptr.Uint64(4810284647569)}},
 		},
 	}
 

@@ -18,7 +18,7 @@ func TestDec15Result_Solve(t *testing.T) {
 		errMsg    string
 	}{
 		// "0,3,6" : {
-		// 	inputPath: "test_data/0-3-6",
+		// 	inputPath: "testdata/0-3-6",
 		// 	parts:     door.Parts{door.Prima, door.Secunda},
 		// 	output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(436), door.Secunda: ptr.Int(175594)}},
 		// },
@@ -28,32 +28,32 @@ func TestDec15Result_Solve(t *testing.T) {
 			output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(468), door.Secunda: ptr.Int(1801753)}},
 		},
 		// "example 1": {
-		// 	inputPath: "test_data/example1",
+		// 	inputPath: "testdata/example1",
 		// 	parts:     door.Parts{door.Prima, door.Secunda},
 		// 	output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(1), door.Secunda: ptr.Int(2578)}},
 		// },
 		// "example 2": {
-		// 	inputPath: "test_data/example2",
+		// 	inputPath: "testdata/example2",
 		// 	parts:     door.Parts{door.Prima, door.Secunda},
 		// 	output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(10), door.Secunda: ptr.Int(3544142)}},
 		// },
 		// "example 3": {
-		// 	inputPath: "test_data/example3",
+		// 	inputPath: "testdata/example3",
 		// 	parts:     door.Parts{door.Prima, door.Secunda},
 		// 	output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(27), door.Secunda: ptr.Int(261214)}},
 		// },
 		// "example 4": {
-		// 	inputPath: "test_data/example4",
+		// 	inputPath: "testdata/example4",
 		// 	parts:     door.Parts{door.Prima, door.Secunda},
 		// 	output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(78), door.Secunda: ptr.Int(6895259)}},
 		// },
 		// "example 5": {
-		// 	inputPath: "test_data/example5",
+		// 	inputPath: "testdata/example5",
 		// 	parts:     door.Parts{door.Prima, door.Secunda},
 		// 	output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(438), door.Secunda: ptr.Int(18)}},
 		// },
 		// "example 6": {
-		// 	inputPath: "test_data/example6",
+		// 	inputPath: "testdata/example6",
 		// 	parts:     door.Parts{door.Prima, door.Secunda},
 		// 	output:    dec15Result{map[door.Part]*int{door.Prima: ptr.Int(1836), door.Secunda: ptr.Int(362)}},
 		// },

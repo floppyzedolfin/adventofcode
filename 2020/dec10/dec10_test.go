@@ -17,12 +17,12 @@ func TestDec10Result_Solve(t *testing.T) {
 		errMsg    string
 	}{
 		"example1": {
-			inputPath: "./test_data/example1",
+			inputPath: "./testdata/example1",
 			parts:     door.Parts{door.Prima},
 			output:    dec10Result{map[door.Part]*int64{door.Prima: ptr.Int64(35)}},
 		},
 		"example2": {
-			inputPath: "./test_data/example2",
+			inputPath: "./testdata/example2",
 			parts:     door.Parts{door.Prima, door.Secunda},
 			output:    dec10Result{map[door.Part]*int64{door.Prima: ptr.Int64(220), door.Secunda: ptr.Int64(19208)}},
 		},

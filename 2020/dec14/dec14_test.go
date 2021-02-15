@@ -17,7 +17,7 @@ func TestDec14Result_Solve(t *testing.T) {
 		errMsg    string
 	}{
 		"example1 part1": {
-			inputPath: "test_data/example1",
+			inputPath: "testdata/example1",
 			parts:     door.Parts{door.Prima},
 			output:    dec14Result{map[door.Part]*uint64{door.Prima: ptr.Uint64(165)}},
 		},
@@ -27,7 +27,7 @@ func TestDec14Result_Solve(t *testing.T) {
 			output:    dec14Result{map[door.Part]*uint64{door.Prima: ptr.Uint64(17028179706934), door.Secunda: ptr.Uint64(3683236147222)}},
 		},
 		"example2 part2": {
-			inputPath: "test_data/example2",
+			inputPath: "testdata/example2",
 			parts:     door.Parts{door.Secunda},
 			output:    dec14Result{map[door.Part]*uint64{door.Secunda: ptr.Uint64(208)}},
 		},

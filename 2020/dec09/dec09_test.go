@@ -24,7 +24,7 @@ func TestDec09Result_Solve(t *testing.T) {
 			output:    dec09Result{invalidNumber: map[door.Part]*int{door.Prima: ptr.Int(18272118)}},
 		},
 		"example 1": {
-			inputPath: "./test_data/example1",
+			inputPath: "./testdata/example1",
 			preambleLength: 5,
 			parts:     door.Parts{door.Prima, door.Secunda},
 			output:    dec09Result{invalidNumber: map[door.Part]*int{door.Prima: ptr.Int(127), door.Secunda: ptr.Int(62)}},

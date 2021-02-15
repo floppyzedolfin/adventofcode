@@ -22,12 +22,12 @@ func TestDec07Result_Solve(t *testing.T) {
 			output:    dec07Result{data: map[door.Part]*int{door.Prima: ptr.Int(224), door.Secunda: ptr.Int(1488)}},
 		},
 		"example 1" : {
-			inputPath: "./test_data/example1",
+			inputPath: "./testdata/example1",
 			parts:     door.Parts{door.Prima, door.Secunda},
 			output:    dec07Result{data: map[door.Part]*int{door.Prima: ptr.Int(4), door.Secunda: ptr.Int(32)}},
 		},
 		"example 2" : {
-			inputPath: "./test_data/example2",
+			inputPath: "./testdata/example2",
 			parts: door.Parts{door.Secunda},
 			output: dec07Result{data: map[door.Part]*int{door.Secunda: ptr.Int(126)}},
 		},
