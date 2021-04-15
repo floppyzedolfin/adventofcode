@@ -6,23 +6,24 @@ import (
 	"log"
 	"time"
 
-	"github.com/floppyzedolfin/adventofcode/2020/dec01"
-	"github.com/floppyzedolfin/adventofcode/2020/dec02"
-	"github.com/floppyzedolfin/adventofcode/2020/dec03"
-	"github.com/floppyzedolfin/adventofcode/2020/dec04"
-	"github.com/floppyzedolfin/adventofcode/2020/dec05"
-	"github.com/floppyzedolfin/adventofcode/2020/dec06"
-	"github.com/floppyzedolfin/adventofcode/2020/dec07"
-	"github.com/floppyzedolfin/adventofcode/2020/dec08"
-	"github.com/floppyzedolfin/adventofcode/2020/dec09"
-	"github.com/floppyzedolfin/adventofcode/2020/dec10"
-	"github.com/floppyzedolfin/adventofcode/2020/dec11"
-	"github.com/floppyzedolfin/adventofcode/2020/dec12"
-	"github.com/floppyzedolfin/adventofcode/2020/dec13"
-	"github.com/floppyzedolfin/adventofcode/2020/dec14"
-	"github.com/floppyzedolfin/adventofcode/2020/dec15"
-	"github.com/floppyzedolfin/adventofcode/2020/dec16"
-	"github.com/floppyzedolfin/adventofcode/door"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec01"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec02"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec03"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec04"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec05"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec06"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec07"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec08"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec09"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec10"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec11"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec12"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec13"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec14"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec15"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec16"
+	"github.com/floppyzedolfin/adventofcode/internal/2020/dec17"
+	"github.com/floppyzedolfin/adventofcode/pkg/door"
 )
 
 const (
@@ -56,37 +57,39 @@ func main() {
 
 	switch d {
 	case 1:
-		s = dec01.New("2020/dec01/input")
+		s = dec01.New("internal/2020/dec01/input")
 	case 2:
-		s = dec02.New("2020/dec02/input")
+		s = dec02.New("internal/2020/dec02/input")
 	case 3:
-		s = dec03.New("2020/dec03/input")
+		s = dec03.New("internal/2020/dec03/input")
 	case 4:
-		s = dec04.New("2020/dec04/input")
+		s = dec04.New("internal/2020/dec04/input")
 	case 5:
-		s = dec05.New("2020/dec05/input")
+		s = dec05.New("internal/2020/dec05/input")
 	case 6:
-		s = dec06.New("2020/dec06/input")
+		s = dec06.New("internal/2020/dec06/input")
 	case 7:
-		s = dec07.New("2020/dec07/input")
+		s = dec07.New("internal/2020/dec07/input")
 	case 8:
-		s = dec08.New("2020/dec08/input")
+		s = dec08.New("internal/2020/dec08/input")
 	case 9:
-		s = dec09.New("2020/dec09/input")
+		s = dec09.New("internal/2020/dec09/input")
 	case 10:
-		s = dec10.New("2020/dec10/input")
+		s = dec10.New("internal/2020/dec10/input")
 	case 11:
-		s = dec11.New("2020/dec11/input")
+		s = dec11.New("internal/2020/dec11/input")
 	case 12:
-		s = dec12.New("2020/dec12/input")
+		s = dec12.New("internal/2020/dec12/input")
 	case 13:
-		s = dec13.New("2020/dec13/input")
+		s = dec13.New("internal/2020/dec13/input")
 	case 14:
-		s = dec14.New("2020/dec14/input")
+		s = dec14.New("internal/2020/dec14/input")
 	case 15:
-		s = dec15.New("2020/dec15/input")
+		s = dec15.New("internal/2020/dec15/input")
 	case 16:
-		s = dec16.New("2020/dec16/input")
+		s = dec16.New("internal/2020/dec16/input")
+	case 17:
+		s = dec17.New("internal/2020/dec17/input")
 	default:
 		log.Fatalf("can't open door %d yet", d)
 	}

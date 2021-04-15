@@ -1,3 +1,5 @@
+QUALITY_THRESHOLD=70
+
 init:
 	go mod vendor
 
@@ -5,7 +7,9 @@ test:
 	go test ./...
 
 cover:
-	go test --cover ./...
+	go test ./... -coverprofile=coverage.out
+	go tool cover -func coverage.out | awk -F'\t' -v threshold=${QUALITY_THRESHOLD} '/^total:/{print $$0; overall_percent=$$NF; if (overall_percent >= threshold) {exit 0} else {exit 1}}'
+
 
 clean:
 	go clean -testcache -modcache -cache
